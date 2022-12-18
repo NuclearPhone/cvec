@@ -31,12 +31,12 @@
         free((vector).ptr);    \
     VECTOR_REQUIRE_SEMICOLON
 
-#define VECTOR_FIT(vector, fit_to)                                       \
-    while ((vector).capacity < fit_to) {                                 \
-        (vector).capacity *= VECTOR_DEFAULT_GROWTH_RATE;                 \
-    };                                                                   \
-    (vector).ptr =                                                       \
-        realloc((vector).ptr, sizeof((vector).ptr) * (vector).capacity); \
+#define VECTOR_FIT(vector, fit_to)                                        \
+    while ((vector).capacity < fit_to) {                                  \
+        (vector).capacity *= VECTOR_DEFAULT_GROWTH_RATE;                  \
+    };                                                                    \
+    (vector).ptr =                                                        \
+        realloc((vector).ptr, sizeof(*(vector).ptr) * (vector).capacity); \
     VECTOR_REQUIRE_SEMICOLON
 
 #define VECTOR_PUSH(vector, value)           \
